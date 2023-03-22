@@ -11,6 +11,7 @@ on:
 
 env:
   NPM_CONFIG_LEGACY_PEER_DEPS: true
+  CI: false
 
 jobs:
   build_and_deploy_job:
