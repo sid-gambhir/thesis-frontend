@@ -6,7 +6,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const buttonList = [
     { name: 'Search by keyword', initials: 'GA', href: '/browse-keywords', members: 16, bgColor: 'bg-pink-600' },
-    { name: 'Search by BLAST', initials: 'CD', href: '#', members: 12, bgColor: 'bg-purple-600' },
+    { name: 'Search by BLAST', initials: 'CD', href: '/browse-blast', members: 12, bgColor: 'bg-purple-600' },
     { name: 'Submit', initials: 'T', href: '/submit', members: 16, bgColor: 'bg-yellow-500' },
     { name: 'Contact us', initials: 'RC', href: '/contact-us', members: 8, bgColor: 'bg-green-500' },
   ]

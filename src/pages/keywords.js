@@ -381,7 +381,8 @@ export default function Keyword() {
             </button>
           </div>
         </div>
-        <button
+        {downloadList.length > 0 && (
+          <button
           type="button"
           className="my-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
           onClick={() =>
@@ -394,8 +395,10 @@ export default function Keyword() {
         >
           Download selected rows as Excel
         </button>
+        )}
         
-        <button
+        {searchResults.length > 0 && (
+          <button
           type="button"
           className="mx-3 my-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
           onClick={() =>
@@ -409,6 +412,8 @@ export default function Keyword() {
         >
           Download all rows as Excel
         </button>
+        ) }
+        
         {searchResults.length > 0 && (
           <>
             <label

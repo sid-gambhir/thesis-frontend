@@ -26,6 +26,8 @@ import {
 } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import Submit from "../pages/submit";
+import { useLocation } from 'react-router-dom'
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -34,12 +36,13 @@ function classNames(...classes) {
 export default function Layout({ children, small = false }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [data, setData] = useState(undefined);
+  const location = useLocation();
   const navigation = [
     {
       name: "Home",
       href: "/",
       icon: HomeIcon,
-      current: true,
+      current: location.pathname == "/",
     },
     {
       name: "Database Statistics",
@@ -52,7 +55,7 @@ export default function Layout({ children, small = false }) {
       name: "Submit",
       href: "/submit",
       icon: CheckIcon,
-      current: false,
+      current: location.pathname == "/submit",
     },
     {
       name: "Browse",
@@ -63,12 +66,12 @@ export default function Layout({ children, small = false }) {
         {
           name: "Keywords",
           href: "/browse-keywords",
-          current: true,
+          current: location.pathname == "/browse-keywords",
         },
         {
           name: "BLAST",
           href: "/browse-blast",
-          current: false,
+          current: location.pathname == "/browse-blast",
         },
       ],
     },
@@ -76,7 +79,7 @@ export default function Layout({ children, small = false }) {
       name: "Contact Us",
       href: "/contact-us",
       icon: MailIcon,
-      current: false,
+      current: location.pathname == "/contact-us",
     },
   ];
 
