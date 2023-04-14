@@ -68,11 +68,15 @@ export default function Blast() {
       ...(selectedExperimentalMethod
         ? { experimental_method: selectedExperimentalMethod }
         : {}),
+      blastn: blastInput,
     };
     axios
-      .get(`${appConfig.baseUrl}/${appConfig.geneListUri}`, {
-        params: queryParams,
-      })
+      .get(
+        `${appConfig.baseUrl}/${appConfig.geneListUri}`,
+        {
+          params: queryParams,
+        }
+      )
       .then((response) => {
         console.log("Search response data: ", response.data);
         setSearchResults(response.data);
