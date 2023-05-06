@@ -58,6 +58,7 @@ export default function Keyword() {
   }, []);
 
   const onSearch = () => {
+    console.log("Value in search function: ", selectedBiologicalFunction);
     const queryParams = {
       ...(selectedSpecies ? { species: selectedSpecies } : {}),
       ...(selectedBiologicalFunction
@@ -76,6 +77,15 @@ export default function Keyword() {
         setSearchResults(response.data);
       });
   };
+  const resetBiologicalFunction = () => {
+    setSelectedBiologicalFunction("");
+  }
+  const resetSelectedSpecies = () => {
+    setSelectedSpecies("");
+  }
+  const resetSelectedExperimentalMethod = () => {
+    setSelectedExperimentalMethod("");
+  }
 
   return (
     <Layout>
@@ -89,8 +99,15 @@ export default function Keyword() {
             <>
               <Listbox.Label className="block text-md font-medium text-gray-700">
                 Select species
+                <button
+            onClick={resetSelectedSpecies}
+            type="button"
+            className="inline-flex items-center px-4 py-2 mb-3 mx-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+          >
+            Reset Species
+          </button>
               </Listbox.Label>
-              <div className="mt-3 mb-5 relative">
+              <div className="mb-3 relative">
                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">
                     {selectedSpecies || "Select"}
@@ -160,6 +177,9 @@ export default function Keyword() {
             </>
           )}
         </Listbox>
+        
+        
+        <hr/>
         <Listbox
           value={selectedBiologicalFunction}
           onChange={setSelectedBiologicalFunction}
@@ -168,8 +188,15 @@ export default function Keyword() {
             <>
               <Listbox.Label className="block text-md font-medium text-gray-700">
                 Select biological function
+                <button
+            onClick={resetBiologicalFunction}
+            type="button"
+            className="inline-flex items-center px-4 py-2 mb-3 mx-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+          >
+            Reset Biological Funcation
+          </button>
               </Listbox.Label>
-              <div className="mt-3 mb-5 relative">
+              <div className="mb-3 relative">
                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">
                     {selectedBiologicalFunction || "Select"}
@@ -241,6 +268,10 @@ export default function Keyword() {
             </>
           )}
         </Listbox>
+
+        
+
+        <hr/>
         <Listbox
           value={selectedExperimentalMethod}
           onChange={setSelectedExperimentalMethod}
@@ -249,8 +280,15 @@ export default function Keyword() {
             <>
               <Listbox.Label className="block text-md font-medium text-gray-700">
                 Select experimental method
+                <button
+            onClick={resetSelectedExperimentalMethod}
+            type="button"
+            className="inline-flex items-center px-4 py-2 mb-5 mx-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+          >
+            Reset Experimental Method
+          </button>
               </Listbox.Label>
-              <div className="mt-3 mb-5 relative">
+              <div className=" mb-3 relative">
                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">
                     {selectedExperimentalMethod || "Select"}
@@ -320,19 +358,22 @@ export default function Keyword() {
             </>
           )}
         </Listbox>
+        
+
+                                    <hr/>
         <div className=" flex ">
           <button
             onClick={onSearch}
             type="button"
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
           >
-            Search
+            SEARCH
           </button>
         </div>
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-md font-medium bg-gray-300 text-black mt-5 mb-5">
+        {/* <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-md font-medium bg-gray-300 text-black mt-5 mb-5">
           OR
-        </span>
-        <div className="sm:col-span-2">
+        </span> */}
+        {/* <div className="sm:col-span-2">
           <label
             htmlFor="email"
             className="block text-md font-medium text-gray-700"
@@ -354,11 +395,11 @@ export default function Keyword() {
               Search
             </button>
           </div>
-        </div>
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-md font-medium bg-gray-300 text-black mt-5 mb-5">
+        </div> */}
+        {/* <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-md font-medium bg-gray-300 text-black mt-5 mb-5">
           OR
-        </span>
-        <div className="sm:col-span-2">
+        </span> */}
+        {/* <div className="sm:col-span-2">
           <label
             htmlFor="email"
             className="block text-md font-medium text-gray-700"
@@ -380,7 +421,7 @@ export default function Keyword() {
               Search
             </button>
           </div>
-        </div>
+        </div> */}
         {downloadList.length > 0 && (
           <button
           type="button"
