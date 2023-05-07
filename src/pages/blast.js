@@ -6,6 +6,7 @@ import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import ResultTable from "./resultTable";
 import { appConfig } from "../config";
 import { exportToExcel } from "react-json-to-excel";
+import BlastResultTable from "./blastResultTable";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -243,7 +244,7 @@ export default function Blast() {
               >
                 Results{": " + searchResults.length}
               </label>
-              <ResultTable
+              <BlastResultTable
                 dataList={searchResults}
                 addItemToDownload={addItemToDownload}
                 removeItemFromDownload={removeItemFromDownload}
