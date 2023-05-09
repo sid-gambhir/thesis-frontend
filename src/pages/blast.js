@@ -23,6 +23,7 @@ export default function Blast() {
   const [downloadList, setDownloadList] = useState([]);
   var today = new Date();
   const [blastInput, setBlastInput] = useState("");
+  const [resultId, setResultId] = useState("");
 
   function addItemToDownload(dataIdx) {
     setDownloadList((prevState) => [...prevState, searchResults[dataIdx]]);
@@ -62,25 +63,37 @@ export default function Blast() {
     
     
     const queryParams = {
-      ...(selectedSpecies ? { species: selectedSpecies } : {}),
-      ...(selectedBiologicalFunction
-        ? { function: selectedBiologicalFunction }
-        : {}),
-      ...(selectedExperimentalMethod
-        ? { experimental_method: selectedExperimentalMethod }
-        : {}),
-      blastn: blastInput,
+      // ...(selectedSpecies ? { species: selectedSpecies } : {}),
+      // ...(selectedBiologicalFunction
+      //   ? { function: selectedBiologicalFunction }
+      //   : {}),
+      // ...(selectedExperimentalMethod
+      //   ? { experimental_method: selectedExperimentalMethod }
+      //   : {}),
+      query_fasta: blastInput,
     };
     axios
-    .get(`${appConfig.baseUrl}/${appConfig.geneListUri}`, {
+    .post(`${appConfig.baseUrl}/blast-search`, {
           params: queryParams,
         }
       )
       .then((response) => {
-        console.log("Search response data: ", response.data);
-        setSearchResults(response.data);
+        setResultId(response.result_id)
       });
   };
+
+  useEffect(() => {
+    axios
+      .get(`${appConfig.baseUrl}/blast-search/results/${resultId}`)
+      .then((response) => {
+        setSearchResults(response)
+      });
+  }, [resultId]);
+  function handleChange(event) {
+    console.log(`Selected file - ${event.target.files[0].name}`);
+    const files = Array.from(event.target.files)
+    console.log("files:", files)
+  }
 
   return (
     <Layout>
@@ -202,6 +215,10 @@ export default function Blast() {
               </button>
             </div>
           </div>
+
+{/* <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+<input onChange={handleChange} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/> */}
+
           {downloadList.length > 0 && (
             <button
               type="button"
