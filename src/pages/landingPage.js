@@ -2,8 +2,8 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { Disclosure, Menu } from '@headlessui/react'
-import { BellIcon} from '@heroicons/react/outline'
+import { Disclosure, Menu } from "@headlessui/react";
+import { BellIcon } from "@heroicons/react/outline";
 
 const buttonList = [
   {
@@ -190,79 +190,85 @@ export default function LandingPage() {
 
           {/* alternate nav bar */}
           <Disclosure as="nav" className="bg-gray-800">
-      {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="items-center">
-                  {/* <img
+            {({ open }) => (
+              <>
+                <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                  <div className="relative flex items-center justify-between h-16">
+                    <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                      {/* Mobile menu button*/}
+                      <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span className="sr-only">Open main menu</span>
+                        {open ? (
+                          <XIcon className="block h-6 w-6" aria-hidden="true" />
+                        ) : (
+                          <MenuIcon
+                            className="block h-6 w-6"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </Disclosure.Button>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                      <div className="items-center">
+                        {/* <img
                     className="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   /> */}
-                  {/* <img
+                        {/* <img
                     className="hidden lg:block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                     alt="Workflow"
                   /> */}
-                  <p className="font-medium text-white  text-4xl pl-4">MecDB </p>
-                  {" "}
-                  
+                        <p className="font-medium text-white  text-4xl pl-4">
+                          MecDB{" "}
+                        </p>{" "}
+                      </div>
+                      <div className="hidden sm:block ml-14 pb-0">
+                        <div className="flex space-x-4">
+                          {navigation.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className={classNames(
+                                item.current
+                                  ? "bg-gray-900 text-white"
+                                  : "text-gray-200 hover:bg-gray-700 hover:text-white",
+                                "px-3 py-2 rounded-md text-lg font-medium"
+                              )}
+                              aria-current={item.current ? "page" : undefined}
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="hidden sm:block ml-14 pb-0">
-                  <div className="flex space-x-4">
+
+                <Disclosure.Panel className="sm:hidden">
+                  <div className="px-2 pt-2 pb-3 space-y-1">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-200 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-lg font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "block px-3 py-2 rounded-md text-base font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
                     ))}
                   </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
 
           <Transition
             as={Fragment}
@@ -313,13 +319,12 @@ export default function LandingPage() {
           <div className="text-center">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Welcome to</span>{" "}
-              <span className="block text-indigo-600 xl:inline ">
-              MecDB
-              </span>
-              <br/>
-
+              <span className="block text-indigo-600 xl:inline ">MecDB</span>
+              <br />
             </h1>
-            <p className="font-medium text-gray-700 text-2xl">Monocots experimentally characterized gene Database </p>
+            <p className="font-medium text-gray-700 text-2xl">
+              Monocots experimentally characterized gene Database{" "}
+            </p>
 
             <p className="mt-3 max-w-md mx-auto text-base text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-5xl">
               Welcome to MecDB, a database of manually curated data of
@@ -329,12 +334,13 @@ export default function LandingPage() {
               characterization, pathway category, and phenotype. All the said
               information can be downloaded by the user in excel format. The
               data is obtained from publicly available databases like PDB and
-              NCBI. 
-              <br/>
-              PlecDB currently contains <b>122</b> experimentally characterized
+              NCBI.
+              <br />
+              MecDB currently contains <b>122</b> experimentally characterized
               gene from five monocot plant species Finger millet, Foxtail
               millet, Sorghum bicolor, Pearl millet, Hordeum vulgare.
             </p>
+            
             <div className="mt-5  mx-auto sm:flex sm:justify-center md:mt-8">
               {/* <div className="rounded-md shadow">
                 <a

@@ -72,9 +72,7 @@ export default function Blast() {
       blastn: blastInput,
     };
     axios
-      .get(
-        `${appConfig.baseUrl}/blast-search/results/`,
-        {
+    .get(`${appConfig.baseUrl}/${appConfig.geneListUri}`, {
           params: queryParams,
         }
       )

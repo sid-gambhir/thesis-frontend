@@ -12,8 +12,29 @@ export default function BlastResultTable({
         console.log('removing value: ', dataIdx)
         removeItemFromDownload(dataIdx);
       }
+      let originalBlastOutput = dataList?.blast_output
+      let modifiedBlastOutput = originalBlastOutput.replace("\n", "<br/>")
   return (
+    
     <div className="flex flex-col mt-5">
+        <div className="bg-white">
+      <div className="max-w-7xl mx-auto  px-4  sm:px-6 lg:px-8">
+        <div className="text-center">
+        <h2 className="text-base font-semibold text-gray-700 tracking-wide uppercase">NCBI BLAST Output File View</h2>
+
+          <p className=" mt-5 mx-auto text-xl text-gray-500">
+            Start building for free, then add a site plan to go live. Account plans unlock additional features. Welcome to MecDB, a database of manually curated data of
+              experimentally characterized genes in monocots. Each entry
+              contains information for gene name, host plant, plant species in
+              which it is characterized, accession number, method used for
+              characterization, pathway category, and phenotype. All the said
+              information can be downloaded by the user in excel format. The
+              data is obtained from publicly available databases like PDB and
+              NCBI.
+          </p>
+        </div>
+      </div>
+    </div>
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -141,7 +162,7 @@ export default function BlastResultTable({
                 </tr>
               </thead>
               <tbody>
-                {dataList.map((data, dataIdx) => (
+                {dataList.hits.map((data, dataIdx) => (
                   <tr
                     key={data.geneSymbol}
                     className={dataIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}

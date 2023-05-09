@@ -23,7 +23,22 @@ export default function Contact() {
                   </div>
                   <div className="mt-1">
                     <dt className="sr-only">Phone number</dt>
-                    <dd>+1 (555) 123-4567</dd>
+                    <dd>+91-1596-255740</dd>
+                  </div>
+                </dl>
+              </div>
+              <div>
+                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                  Lakshay Sharma
+                </h3>
+                <dl className="mt-2 text-base text-gray-500">
+                  <div>
+                    <dt className="sr-only">Email</dt>
+                    <dd>p20220005@pilani.bits-pilani.ac.in</dd>
+                  </div>
+                  <div className="mt-1">
+                    <dt className="sr-only">Phone number</dt>
+                    <dd>+91 95991 06506</dd>
                   </div>
                 </dl>
               </div>
@@ -38,37 +53,23 @@ export default function Contact() {
                   </div>
                   <div className="mt-1">
                     <dt className="sr-only">Phone number</dt>
-                    <dd>+1 (555) 123-4567</dd>
+                    <dd>+91 90340 34081</dd>
                   </div>
                 </dl>
               </div>
+              
               <div>
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  Person A
+                  Shubham Pandey
                 </h3>
                 <dl className="mt-2 text-base text-gray-500">
                   <div>
                     <dt className="sr-only">Email</dt>
-                    <dd>support@example.com</dd>
+                    <dd>f20190982@pilani.bits-pilani.ac.in</dd>
                   </div>
                   <div className="mt-1">
                     <dt className="sr-only">Phone number</dt>
-                    <dd>+1 (555) 123-4567</dd>
-                  </div>
-                </dl>
-              </div>
-              <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  Person B
-                </h3>
-                <dl className="mt-2 text-base text-gray-500">
-                  <div>
-                    <dt className="sr-only">Email</dt>
-                    <dd>support@example.com</dd>
-                  </div>
-                  <div className="mt-1">
-                    <dt className="sr-only">Phone number</dt>
-                    <dd>+1 (555) 123-4567</dd>
+                    <dd>+91 82875 89631</dd>
                   </div>
                 </dl>
               </div>

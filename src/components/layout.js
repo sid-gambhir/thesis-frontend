@@ -241,7 +241,7 @@ export default function Layout({ children, small = false }) {
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto rounded-lg">
               <div className="flex items-center px-4">
                 <p className="text-white  group flex items-center px-2 text-xl font-medium rounded-md ">
-                  D.R.E.A.M. Database
+                  MecDb
                 </p>
               </div>
               <nav className="mt-5 flex-1 px-2 pt-4 bg-gray-800 space-y-1">
