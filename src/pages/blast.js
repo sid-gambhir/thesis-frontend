@@ -62,19 +62,22 @@ export default function Blast() {
     console.log("input data: ", blastInput);
     
     
-    const queryParams = {
-      // ...(selectedSpecies ? { species: selectedSpecies } : {}),
-      // ...(selectedBiologicalFunction
-      //   ? { function: selectedBiologicalFunction }
-      //   : {}),
-      // ...(selectedExperimentalMethod
-      //   ? { experimental_method: selectedExperimentalMethod }
-      //   : {}),
-      query_fasta: blastInput,
-    };
+    // const queryParams = {
+    //   ...(selectedSpecies ? { species: selectedSpecies } : {}),
+    //   ...(selectedBiologicalFunction
+    //     ? { function: selectedBiologicalFunction }
+    //     : {}),
+    //   ...(selectedExperimentalMethod
+    //     ? { experimental_method: selectedExperimentalMethod }
+    //     : {}),
+    //   query_fasta: blastInput,
+    // };
+    const formData = new FormData();
+    formData.append("query_fasta", blastInput);
+    formData.append("fasta_type", "n");
     axios
     .post(`${appConfig.baseUrl}/blast-search`, {
-          params: queryParams,
+          params: formData,
         }
       )
       .then((response) => {
